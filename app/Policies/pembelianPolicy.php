@@ -18,7 +18,7 @@ class pembelianPolicy
      */
     public function viewAny(User $user)
     {
-        //
+        return $user->hak_akses === "admin";
     }
 
     /**

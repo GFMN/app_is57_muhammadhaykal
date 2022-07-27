@@ -41,7 +41,7 @@ class menuPolicy
      */
     public function create(User $user)
     {
-        //
+        return $user->hak_akses === "admin";
     }
 
     /**

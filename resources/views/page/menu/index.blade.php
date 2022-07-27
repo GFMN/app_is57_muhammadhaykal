@@ -2,7 +2,9 @@
 @section('content')
 
 <div class="container  mt-3 p-4" >
-    <a href="/menu/form" style="float: right" class="btn btn-primary btn-sm">tambah data</a>
+  @can('create',App\menu::class)  
+  <a href="/menu/form" style="float: right" class="btn btn-primary btn-sm">tambah data</a>
+  @endcan
 <br>
 <br>
     <div class="card">
@@ -27,6 +29,7 @@
                         <td>{{$item->nama}}</td>
                         <td>{{$item->jenis}}</td>
                         <td>{{$item->harga}}</td>
+                        @can('create',App\menu::class)  
                         <td>
                             <a href="/menu/edit/{{$item->id}}" class="btn btn-success btn-sm">edit</a>
                             <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#a{{$item->id}}">
@@ -55,6 +58,7 @@
     </div>
   </div>
                         </td>
+                        @endcan
                       </tr>
                     @empty
                         <tr>

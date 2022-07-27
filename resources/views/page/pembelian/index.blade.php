@@ -2,7 +2,9 @@
 @section('content')
 
 <div class="container  mt-3 p-4" >
+  @can('create',App\menu::class) 
     <a href="/pembelian/form" style="float: right" class="btn btn-primary btn-sm ">tambah data</a>
+    @endcan
 <br>
 <br>
     <div class="card">
@@ -29,6 +31,7 @@
                         <td>{{$item->tanggal}}</td>
                         <td>{{$item->menus->nama}}</td>
                         <td>{{$item->jumlah}}</td>
+                        @can('create',App\menu::class)
                         <td>
 
                             <a href="/pembelian/edit/{{$item->id}}" class="btn btn-success btn-sm">edit</a>
@@ -58,6 +61,7 @@
     </div>
   </div>
                         </td>
+                        @endcan
                       </tr>
                     @empty
                         <tr>
