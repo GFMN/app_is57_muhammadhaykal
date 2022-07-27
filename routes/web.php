@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\menucontroller;
+use App\Http\Controllers\pembeliancontroller;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,5 +21,11 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Auth::routes();
+Route::get('/menu', [menucontroller::class, 'index']);
+Route::get('/menu/form', [menucontroller::class, 'create']);
+Route::post('/menu/store', [menucontroller::class, 'store']);
+Route::get('/pembelian', [pembeliancontroller::class, 'index']);
+Route::get('/pembelian/form', [pembeliancontroller::class, 'create']);
+Route::post('/pembelian/store', [pembeliancontroller::class, 'store']);
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

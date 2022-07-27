@@ -8,9 +8,9 @@
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="/plugins/fontawesome-free/css/all.min.css">
   <!-- Theme style -->
-  <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="/dist/css/adminlte.min.css">
 </head>
 <body class="hold-transition sidebar-mini">
 <!-- Site wrapper -->
@@ -62,26 +62,18 @@
           </li>
           <li class="nav-header">data master</li>
           <li class="nav-item">
-            <a href="../widgets.html" class="nav-link">
+            <a href="/menu" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
-                belanja
+                menu
               </p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="../widgets.html" class="nav-link">
+            <a href="/pembelian" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 pembelian
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="../widgets.html" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
-              <p>
-                pemesanan
               </p>
             </a>
           </li>
@@ -111,16 +103,14 @@
     </div>
     <!-- /.sidebar -->
   </aside>
-
-  <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1>Dashboard</h1>
-          </div>
+          
+            @yield('content')
+          
         </div>
       </div><!-- /.container-fluid -->
     </section>
@@ -133,6 +123,9 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
+
+  
+ 
 
   <footer class="main-footer">
     <strong>Copyright &copy; 2022 Muhammad Haykal All rights reserved.
