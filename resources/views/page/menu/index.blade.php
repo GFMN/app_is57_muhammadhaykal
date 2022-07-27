@@ -29,7 +29,7 @@
                         <td>{{$item->harga}}</td>
                         <td>
                             <a href="/menu/edit/{{$item->id}}" class="btn btn-success btn-sm">edit</a>
-                            <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#a{{$item->id}}">
+                            <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#a{{$item->id}}">
                                 hapus
                               </button>
                               <!-- Modal -->
@@ -38,14 +38,14 @@
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel">peringatan</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          apakah data dengan kode {{$item->nama}} ingin dihapus ?
+          apakah data dengan nama {{$item->nama}} ingin dihapus ?
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">tutup</button>
-          <form method="POST" action="/jurusan/{{$item->id}}">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">tutup</button>
+          <form method="POST" action="/menu/{{$item->id}}">
             @csrf
             @method('DELETE')
           <button type="submit" class="btn btn-primary">ok</button>

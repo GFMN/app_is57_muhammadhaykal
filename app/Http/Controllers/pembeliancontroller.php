@@ -9,6 +9,10 @@ use App\Models\menu;
 
 class pembeliancontroller extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -70,7 +74,9 @@ class pembeliancontroller extends Controller
      */
     public function edit($id)
     {
-        //
+        $pembelian = pembelian::find($id);
+        $menu = menu::all();
+        return view('page.pembelian.edit',compact('pembelian','menu'));
     }
 
     /**
@@ -82,7 +88,15 @@ class pembeliancontroller extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $pembelian = pembelian::find($id);
+
+        $pembelian->nofak = $request->nofak;
+        $pembelian->tanggal = $request->tanggal;
+        $pembelian->id_menu = $request->menu;
+        $pembelian->jumlah = $request->jumlah;
+        $pembelian->save();
+
+        return redirect('/pembelian');
     }
 
     /**
@@ -93,6 +107,9 @@ class pembeliancontroller extends Controller
      */
     public function destroy($id)
     {
-        //
+        $pembelian = pembelian::find($id);
+        $pembelian->delete();
+
+        return redirect('pembelian');
     }
 }

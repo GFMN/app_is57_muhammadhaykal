@@ -8,6 +8,10 @@ use App\Models\menu;
 
 class menucontroller extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -67,7 +71,8 @@ class menucontroller extends Controller
      */
     public function edit($id)
     {
-        //
+        $menu = menu::find($id);
+        return view('page.menu.edit',compact('menu'));
     }
 
     /**
@@ -79,7 +84,14 @@ class menucontroller extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $menu = menu::find($id);
+
+        $menu->nama = $request->nama;
+        $menu->jenis = $request->jenis;
+        $menu->harga = $request->harga;
+        $menu->save();
+
+        return redirect('/menu');
     }
 
     /**
@@ -90,6 +102,9 @@ class menucontroller extends Controller
      */
     public function destroy($id)
     {
-        //
+        $menu = menu::find($id);
+        $menu->delete();
+
+        return redirect('menu');
     }
 }
